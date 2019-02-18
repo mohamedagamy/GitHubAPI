@@ -1,4 +1,4 @@
-package com.example.mydagger;
+package com.example.mydagger.pojo;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -63,57 +63,12 @@ public class GithubUser implements Serializable {
     private Boolean siteAdmin;
 
 
-    @Override
-    public String toString() {
-        return "{" +
-                "login='" + login + '\'' +
-                ", id=" + id +
-                ", nodeId='" + nodeId + '\'' +
-                ", avatarUrl='" + avatarUrl + '\'' +
-                ", gravatarId='" + gravatarId + '\'' +
-                ", url='" + url + '\'' +
-                ", htmlUrl='" + htmlUrl + '\'' +
-                ", followersUrl='" + followersUrl + '\'' +
-                ", followingUrl='" + followingUrl + '\'' +
-                ", gistsUrl='" + gistsUrl + '\'' +
-                ", starredUrl='" + starredUrl + '\'' +
-                ", subscriptionsUrl='" + subscriptionsUrl + '\'' +
-                ", organizationsUrl='" + organizationsUrl + '\'' +
-                ", reposUrl='" + reposUrl + '\'' +
-                ", eventsUrl='" + eventsUrl + '\'' +
-                ", receivedEventsUrl='" + receivedEventsUrl + '\'' +
-                ", type='" + type + '\'' +
-                ", siteAdmin=" + siteAdmin +
-                '}';
-    }
-
-    //here is all our github user followers
     public String getLogin() {
         return login;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public String getNodeId() {
-        return nodeId;
-    }
-
     public String getAvatarUrl() {
         return avatarUrl;
-    }
-
-    public String getGravatarId() {
-        return gravatarId;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public String getHtmlUrl() {
-        return htmlUrl;
     }
 
     public String getFollowersUrl() {
@@ -122,10 +77,6 @@ public class GithubUser implements Serializable {
 
     public String getFollowingUrl() {
         return followingUrl;
-    }
-
-    public String getGistsUrl() {
-        return gistsUrl;
     }
 
     public String getStarredUrl() {
@@ -148,15 +99,4 @@ public class GithubUser implements Serializable {
         return eventsUrl;
     }
 
-    public String getReceivedEventsUrl() {
-        return receivedEventsUrl;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public Boolean getSiteAdmin() {
-        return siteAdmin;
-    }
 }
