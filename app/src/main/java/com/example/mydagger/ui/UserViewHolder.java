@@ -34,10 +34,19 @@ public class UserViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         Toast.makeText(mContext, "Welcome : "+itemText.getText().toString(), Toast.LENGTH_SHORT).show();
     }
 
-    public void bind(GithubRepo githubUser) {
+    public void bindUser(GithubUser githubUser) {
         if(githubUser != null) {
-            String username = githubUser.getFullName() != null ? githubUser.getFullName() : "";
-            String avatarURL = githubUser.getOwner() != null ? githubUser.getOwner().getAvatarUrl() : "";
+            String username = githubUser.getLogin() != null ? githubUser.getLogin() : "";
+            String avatarURL = githubUser.getAvatarUrl() != null ? githubUser.getAvatarUrl() : "";
+            itemText.setText(username);
+            Picasso.get().load(avatarURL).into(itemImage);
+        }
+    }
+
+    public void bindRepos(GithubRepo githubRepo) {
+        if(githubRepo != null) {
+            String username = githubRepo.getFullName() != null ? githubRepo.getFullName() : "";
+            String avatarURL = githubRepo.getOwner() != null ? githubRepo.getOwner().getAvatarUrl() : "";
             itemText.setText(username);
             Picasso.get().load(avatarURL).into(itemImage);
         }

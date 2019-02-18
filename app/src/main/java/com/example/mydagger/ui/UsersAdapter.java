@@ -1,6 +1,5 @@
 package com.example.mydagger.ui;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,9 +13,11 @@ import com.example.mydagger.pojo.GithubUser;
 import java.util.List;
 
 public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder>{
-    private List<GithubRepo> githubUsers;
+    private List<GithubRepo> githubRepos;
+    private List<GithubUser> githubUsers;
 
-    public UsersAdapter(List<GithubRepo> githubUsers) {
+    public UsersAdapter(List<GithubRepo> githubRepos, List<GithubUser> githubUsers) {
+        this.githubRepos = githubRepos;
         this.githubUsers = githubUsers;
     }
 
@@ -29,12 +30,17 @@ public class UsersAdapter extends RecyclerView.Adapter<UserViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder userViewHolder, int i) {
-        userViewHolder.bind(githubUsers.get(i));
+        if(githubRepos != null)
+            userViewHolder.bindRepos(githubRepos.get(i));
+        else if(githubUsers != null)
+            userViewHolder.bindUser(githubUsers.get(i));
     }
 
     @Override
     public int getItemCount() {
-        int count = githubUsers != null? githubUsers.size() : 0;
-        return count;
+        int usersCount = githubUsers != null? githubUsers.size() : 0;
+        int reposCount = githubRepos != null? githubRepos.size() : 0;
+        int max = Math.max(usersCount,reposCount);
+        return max;
     }
 }

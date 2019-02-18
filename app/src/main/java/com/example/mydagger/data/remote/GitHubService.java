@@ -7,12 +7,17 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Headers;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface GitHubService {
     @GET("user/repos")
     Call<List<GithubRepo>> listRepos(@Query("access_token") String token);
+
+    @GET("emojis/")
+    Call<Object> listEmojis();
 
     @GET("user/followers")
     Call<List<GithubUser>> listFollowers(@Query("access_token") String token);

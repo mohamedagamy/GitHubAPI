@@ -16,6 +16,12 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
+
+    buildTypes.each {
+        it.buildConfigField 'String', 'GITHUB_ACCESS_TOKEN',gitHubAccessToken
+        it.buildConfigField 'String', 'CLIENT_ID',clientID
+        it.buildConfigField 'String', 'CLIENT_SECRET',clientSecret
+    }
 }
 
 ext{
